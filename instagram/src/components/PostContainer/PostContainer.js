@@ -4,19 +4,19 @@ import CommentSection from '../CommentSection/CommentSection';
 
 const PostContainer = ({
   comments, username, thumbnailUrl, imageUrl, likes, timestamp,
-}) => {
-  return (
-    <div>
+}) => (
+  <div className="post-container">
+    <div className="user-container">
       <p>{username}</p>
       <img src={thumbnailUrl} alt="user-thumbnail" />
-      <img src={imageUrl} alt="insta" />
-      <p>{likes} likes</p>
-      <p>{timestamp}</p>
-      <CommentSection comments={comments} />
-
     </div>
-  );
-};
+    <img src={imageUrl} alt="insta" />
+    <p>{`${likes} likes`}</p>
+    <p>{timestamp}</p>
+    {comments.length ? <CommentSection comments={comments} /> : null}
+
+  </div>
+);
 
 PostContainer.propTypes = {
   username: PropTypes.string.isRequired,
