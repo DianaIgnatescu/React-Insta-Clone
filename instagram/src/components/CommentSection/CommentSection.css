@@ -1,0 +1,40 @@
+h3 {
+  text-align: left;
+  padding: 0 20px;
+  margin: 10px 0;
+  font-size: 16px;
+}
+span {
+  font-weight: normal;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.add-comment {
+  border-top: 1px solid lightgrey;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-comment p {
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+input {
+  width: 560px;
+  border-bottom: 1px solid light-grey;
+  border: none;
+  padding: 20px 0;
+  align-self: left;
+}
+
+::placeholder {
+  font-size: 16px;
+  font-weight: bold;
+  color: grey;
+  /* margin: 40px; */
+}

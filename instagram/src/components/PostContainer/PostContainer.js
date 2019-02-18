@@ -1,21 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
+import Heart from '../../assets/heart.png';
+import Comment from '../../assets/comment.png';
+import './PostContainer.css';
 
 const PostContainer = ({
   comments, username, thumbnailUrl, imageUrl, likes, timestamp,
 }) => (
   <div className="post-container">
     <div className="user-container">
-      <p>{username}</p>
-      <img src={thumbnailUrl} alt="user-thumbnail" />
+      <img className="thumbnail" src={thumbnailUrl} alt="user-thumbnail" />
+      <h3>{username}</h3>
     </div>
-    <img src={imageUrl} alt="insta" />
+    <img className="image" src={imageUrl} alt="insta" />
+    <div className="comment-icons">
+      <img className="icon" src={Heart} alt="heart" />
+      <img className="icon" src={Comment} alt="heart" />
+    </div>
     <p>{`${likes} likes`}</p>
-    <p>{timestamp}</p>
     {comments.length ? <CommentSection comments={comments} /> : null}
+    <p className="timestamp">{timestamp}</p>
 
   </div>
+
 );
 
 PostContainer.propTypes = {

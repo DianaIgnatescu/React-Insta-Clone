@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
+import './CommentSection.css';
 
 const CommentSection = ({ comments }) => (
   <div>
-    {comments.map(({ username, text }) => (
-      <Comment key={`${username}-${text}`} username={username} text={text} />
+    {comments.map(({ username, text, timestamp }) => (
+      <Comment key={`${username}-${text}`} username={username} text={text} timestamp={timestamp} />
     ))}
-    <div>
+    <div className="add-comment">
       <input placeholder="Add comment..." />
       <p>...</p>
     </div>
