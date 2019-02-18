@@ -7,17 +7,20 @@ import User from '../../assets/user.png';
 import './SearchBar.css';
 
 const SearchBar = () => (
-  <div className="search-bar">
-    <div className="logo">
-      <img className="camera" src={CameraIg} alt="camera-ig" />
-      <img className="insta-logo" src={LogoIg} alt="logo-ig" />
+  <div className="search-container">
+    <div className="search-bar">
+      <div className="logo">
+        <img className="camera" src={CameraIg} alt="camera-ig" />
+        <img className="insta-logo" src={LogoIg} alt="logo-ig" />
+      </div>
+      <input className="search" placeholder="Search..." />
+      <div className="social-icons">
+        <img className="icon compass" src={Compass} alt="compass" />
+        <img className="icon heart" src={Heart} alt="heart" />
+        <img className="icon user" src={User} alt="user" />
+      </div>
     </div>
-    <input className="search" placeholder="Search..." />
-    <div className="social-icons">
-      <img className="icon compass" src={Compass} alt="compass" />
-      <img className="icon heart" src={Heart} alt="heart" />
-      <img className="icon user" src={User} alt="user" />
-    </div>
+
   </div>
 );
 

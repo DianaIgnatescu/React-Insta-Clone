@@ -1,6 +1,9 @@
 .post-container {
-  border: 1px solid lightgrey;
+  border: 1px solid #e9e9e9;
   border-radius: 3px;
+  margin: 60px auto;
+  max-width: 640px;
+  background: FFFFFF;
 }
 
 .user-container {
@@ -10,14 +13,15 @@
 
 .thumbnail {
   border-radius: 50%;
-  max-width: 40px;
-  height: 40px;
+  max-width: 30px;
+  height: 30px;
   padding: 20px;
 }
 
 .comment-icons {
   display: flex;
-  padding: 10px 20px;
+  padding: 0 10px;
+  margin-top: 10px;
 }
 
 .icon {
@@ -27,7 +31,8 @@
 p {
   text-align: left;
   font-weight: bold;
-  padding: 10px 20px;
+  color: #262626;
+  padding: 0 20px;
   margin: 0;
 
 }
@@ -35,6 +40,7 @@ p {
 .timestamp {
   color: grey;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
+  padding: 10px 20px;
 }
 

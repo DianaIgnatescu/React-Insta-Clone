@@ -5,8 +5,8 @@ import './CommentSection.css';
 
 const CommentSection = ({ comments }) => (
   <div>
-    {comments.map(({ username, text, timestamp }) => (
-      <Comment key={`${username}-${text}`} username={username} text={text} timestamp={timestamp} />
+    {comments.map(({ username, text }) => (
+      <Comment key={`${username}-${text}`} username={username} text={text} />
     ))}
     <div className="add-comment">
       <input placeholder="Add comment..." />

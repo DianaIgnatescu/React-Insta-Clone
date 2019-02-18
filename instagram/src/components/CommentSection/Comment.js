@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Comment = ({ username, text }) => (
   <div>
-    <h3>{username}<span>{text}</span></h3>
+    <h4>{username}<span>{text}</span></h4>
   </div>
 );
 
