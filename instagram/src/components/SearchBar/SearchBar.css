@@ -1,0 +1,32 @@
+.search-bar {
+  display: flex;
+  max-width: 700px;
+  margin: 0 auto;
+  height: 40px;
+}
+.logo {
+  display: flex;
+  width: 100%;
+}
+.camera {
+  width: 40px;
+}
+
+.insta-logo {
+width: 150px;
+height: 50px;
+}
+
+.search {
+  width: 100px;
+  height: 20px;
+}
+
+.social-icons {
+  display: flex;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
