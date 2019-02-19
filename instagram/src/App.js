@@ -23,11 +23,9 @@ class App extends Component {
   componentDidMount() {
     const savedState = localStorage.getItem('savedState');
     if (savedState) {
-      console.log('Loading previously saved state...');
       const state = JSON.parse(savedState);
       this.setState({ ...state });
     } else {
-      console.log('Seeding state with dummy data...');
       this.setState({ posts: [...dummyData] });
     }
   }
@@ -67,7 +65,9 @@ class App extends Component {
   }
 
   render() {
-    const { posts, likedPosts, currentFilter, resultNotFound } = this.state;
+    const {
+      posts, likedPosts, currentFilter, resultNotFound,
+    } = this.state;
     return (
       <div className="App">
         <SearchBar

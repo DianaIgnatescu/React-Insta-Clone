@@ -45,7 +45,9 @@ const handleSubmit = (event, filterByUsername, usernames) => {
   event.target.querySelector('input').value = '';
 };
 
-const SearchBar = ({ filterByUsername, usernames, currentFilter, resultNotFound }) => (
+const SearchBar = ({
+  filterByUsername, usernames, currentFilter, resultNotFound,
+}) => (
   <div className="search-container">
     <div className="search-bar">
       <div className="logo">
