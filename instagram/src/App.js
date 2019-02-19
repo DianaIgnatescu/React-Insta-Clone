@@ -17,8 +17,8 @@ class App extends Component {
     };
     this.addNewComment = this.addNewComment.bind(this);
     this.addLike = this.addLike.bind(this);
+    this.filterByUsername = this.filterByUsername.bind(this);
   }
-
 
 
   componentDidMount() {
@@ -46,11 +46,16 @@ class App extends Component {
     this.setState({ posts: [...newPosts], likedPosts: new Set(newLikedPosts) });
   }
 
+  filterByUsername(username) {
+    const filteredPosts = this.state.posts.filter(post => post.username === username);
+    this.setState({ posts: [...filteredPosts] });
+  }
+
   render() {
     const { posts, likedPosts } = this.state;
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar filterByUsername={this.filterByUsername} />
         {posts.map((post, index) => (
           <PostContainer
             likedPosts={likedPosts}
