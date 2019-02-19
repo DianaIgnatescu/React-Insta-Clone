@@ -15,7 +15,7 @@ const PostContainer = ({
     <img className="image" src={imageUrl} alt="insta" />
 
     <div className="comment-icons">
-      {likedPosts.has(postId)
+      {likedPosts.includes(postId)
         ? <i className="icon fas fa-heart" onClick={() => addLike(postId)} />
         : <i className="icon far fa-heart" onClick={() => addLike(postId)}/>}
       <i className="icon far fa-comment" />
@@ -43,9 +43,8 @@ PostContainer.propTypes = {
   addNewComment: PropTypes.func.isRequired,
   postId: PropTypes.number.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
-  likedPosts: PropTypes.object.isRequired,
+  likedPosts: PropTypes.array.isRequired,
   addLike: PropTypes.func.isRequired,
-
 };
 
 export default PostContainer;

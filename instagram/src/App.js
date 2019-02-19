@@ -11,9 +11,7 @@ class App extends Component {
     this.state = {
       posts: [...dummyData],
       currentUser: 'Holly Wood',
-      likedPosts: new Set(),
-      // comments: [{ postId: 1, username: 'biancasaurus', text: 'hello'}, { postId: 1, username: 'theotherguy', text: 'hello'},
-      // { postId: 2, username: 'biancasaurus', text: 'hello'}],
+      likedPosts: [],
     };
     this.addNewComment = this.addNewComment.bind(this);
     this.addLike = this.addLike.bind(this);
@@ -26,28 +24,31 @@ class App extends Component {
   }
 
   addNewComment(postId, comment) {
+    const { posts, currentUser } = this.state;
     const index = postId - 1;
-    const newPosts = [...this.state.posts];
-    newPosts[index].comments.push({ username: this.state.currentUser, text: comment });
+    const newPosts = [...posts];
+    newPosts[index].comments.push({ username: currentUser, text: comment });
     this.setState({ posts: [...newPosts] });
   }
 
   addLike(postId) {
-    const index = postId -1;
-    const newPosts = [...this.state.posts];
-    const newLikedPosts = new Set (this.state.likedPosts);
-    if (this.state.likedPosts.has(postId)) {
+    const { posts, likedPosts } = this.state;
+    const index = postId - 1;
+    const newPosts = [...posts];
+    const newLikedPosts = [...likedPosts];
+    if (likedPosts.includes(postId)) {
       newPosts[index].likes -= 1;
-      newLikedPosts.delete(postId);
+      newLikedPosts.pop(newLikedPosts.indexOf(postId));
     } else {
       newPosts[index].likes += 1;
-      newLikedPosts.add(postId);
+      newLikedPosts.push(postId);
     }
-    this.setState({ posts: [...newPosts], likedPosts: new Set(newLikedPosts) });
+    this.setState({ posts: [...newPosts], likedPosts: [...newLikedPosts] });
   }
 
   filterByUsername(username) {
-    const filteredPosts = this.state.posts.filter(post => post.username === username);
+    const { posts } = this.state;
+    const filteredPosts = posts.filter(post => post.username === username);
     this.setState({ posts: [...filteredPosts] });
   }
 
