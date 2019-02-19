@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
@@ -17,15 +19,15 @@ const PostContainer = ({
     <div className="comment-icons">
       {likedPosts.includes(postId)
         ? <i className="icon fas fa-heart" onClick={() => addLike(postId)} />
-        : <i className="icon far fa-heart" onClick={() => addLike(postId)}/>}
+        : <i className="icon far fa-heart" onClick={() => addLike(postId)} />}
       <i className="icon far fa-comment" />
     </div>
 
     <p>{`${likes} likes`}</p>
 
-    {comments.length ? <CommentSection comments={comments} addNewComment={addNewComment} postId={postId} /> : null}
+    {comments.length ? <CommentSection comments={comments} addNewComment={addNewComment} postId={postId} timestamp={timestamp} /> : null}
 
-    <p className="timestamp">{timestamp}</p>
+    {/* <p className="timestamp">{timestamp}</p> */}
   </div>
 
 );
