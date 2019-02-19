@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
-import Heart from '../../assets/heart.png';
-import Comment from '../../assets/comment.png';
 import './PostContainer.css';
 
 const PostContainer = ({
@@ -17,8 +15,8 @@ const PostContainer = ({
     <img className="image" src={imageUrl} alt="insta" />
 
     <div className="comment-icons">
-      <img className="icon" src={Heart} alt="heart" />
-      <img className="icon" src={Comment} alt="heart" />
+      <i className="icon far fa-heart" />
+      <i className="icon far fa-comment" />
     </div>
 
     <p>{`${likes} likes`}</p>
