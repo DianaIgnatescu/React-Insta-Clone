@@ -13,11 +13,12 @@ const handleSubmit = (event, postId, addNewComment) => {
   event.target.querySelector('input').value = '';
 };
 
-const CommentSection = ({ comments, postId, addNewComment }) => (
+const CommentSection = ({ comments, postId, addNewComment, timestamp }) => (
   <div>
     {comments.map(({ username, text }) => (
       <Comment key={`${username}-${text}`} username={username} text={text} />
     ))}
+    <p className="timestamp">{timestamp}</p>
     <div className="add-comment">
       <form onSubmit={event => handleSubmit(event, postId, addNewComment)}>
         <input placeholder="Add comment..." />
@@ -34,6 +35,7 @@ CommentSection.propTypes = {
   })).isRequired,
   postId: PropTypes.number.isRequired,
   addNewComment: PropTypes.func.isRequired,
+  timestamp: PropTypes.string.isRequired,
 };
 
 export default CommentSection;
