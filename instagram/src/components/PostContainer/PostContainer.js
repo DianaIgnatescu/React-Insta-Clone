@@ -13,15 +13,19 @@ const PostContainer = ({
       <img className="thumbnail" src={thumbnailUrl} alt="user-thumbnail" />
       <h3>{username}</h3>
     </div>
+
     <img className="image" src={imageUrl} alt="insta" />
+
     <div className="comment-icons">
       <img className="icon" src={Heart} alt="heart" />
       <img className="icon" src={Comment} alt="heart" />
     </div>
-    <p>{`${likes} likes`}</p>
-    {comments.length ? <CommentSection comments={comments} /> : null}
-    <p className="timestamp">{timestamp}</p>
 
+    <p>{`${likes} likes`}</p>
+
+    {comments.length ? <CommentSection comments={comments} /> : null}
+
+    <p className="timestamp">{timestamp}</p>
   </div>
 
 );

@@ -36,6 +36,6 @@ input {
 
 ::placeholder {
   font-size: 14px;
-  color: grey;
+  color: #999999;
   font-weight: 500;
 }

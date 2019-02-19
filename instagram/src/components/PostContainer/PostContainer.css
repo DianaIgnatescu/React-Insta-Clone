@@ -24,10 +24,6 @@
   margin-top: 10px;
 }
 
-.icon {
-  padding-right: 10px;
-}
-
 p {
   text-align: left;
   font-weight: bold;
@@ -38,7 +34,7 @@ p {
 }
 
 .timestamp {
-  color: grey;
+  color: #999999;
   font-weight: normal;
   font-size: 14px;
   padding: 10px 20px;
