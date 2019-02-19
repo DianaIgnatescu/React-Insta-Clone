@@ -12,15 +12,28 @@ class App extends Component {
       posts: [...dummyData],
       currentUser: 'Holly Wood',
       likedPosts: [],
+      currentFilter: '',
+      resultNotFound: false,
     };
     this.addNewComment = this.addNewComment.bind(this);
     this.addLike = this.addLike.bind(this);
     this.filterByUsername = this.filterByUsername.bind(this);
   }
 
-
   componentDidMount() {
-    this.setState({ posts: [...dummyData] });
+    const savedState = localStorage.getItem('savedState');
+    if (savedState) {
+      console.log('Loading previously saved state...');
+      const state = JSON.parse(savedState);
+      this.setState({ ...state });
+    } else {
+      console.log('Seeding state with dummy data...');
+      this.setState({ posts: [...dummyData] });
+    }
+  }
+
+  saveToLocalStorage() {
+    localStorage.setItem('savedState', JSON.stringify(this.state));
   }
 
   addNewComment(postId, comment) {
@@ -28,7 +41,7 @@ class App extends Component {
     const index = postId - 1;
     const newPosts = [...posts];
     newPosts[index].comments.push({ username: currentUser, text: comment });
-    this.setState({ posts: [...newPosts] });
+    this.setState({ posts: [...newPosts] }, this.saveToLocalStorage);
   }
 
   addLike(postId) {
@@ -43,20 +56,26 @@ class App extends Component {
       newPosts[index].likes += 1;
       newLikedPosts.push(postId);
     }
-    this.setState({ posts: [...newPosts], likedPosts: [...newLikedPosts] });
+    this.setState({ posts: [...newPosts], likedPosts: [...newLikedPosts] },
+      this.saveToLocalStorage);
   }
 
-  filterByUsername(username) {
+  filterByUsername(username, resultNotFound) {
     const { posts } = this.state;
     const filteredPosts = posts.filter(post => post.username === username);
-    this.setState({ posts: [...filteredPosts] });
+    this.setState({ posts: [...filteredPosts], currentFilter: username, resultNotFound });
   }
 
   render() {
-    const { posts, likedPosts } = this.state;
+    const { posts, likedPosts, currentFilter, resultNotFound } = this.state;
     return (
       <div className="App">
-        <SearchBar filterByUsername={this.filterByUsername} />
+        <SearchBar
+          currentFilter={currentFilter}
+          resultNotFound={resultNotFound}
+          filterByUsername={this.filterByUsername}
+          usernames={posts.map(post => post.username)}
+        />
         {posts.map((post, index) => (
           <PostContainer
             likedPosts={likedPosts}
