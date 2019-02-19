@@ -13,7 +13,9 @@ const handleSubmit = (event, postId, addNewComment) => {
   event.target.querySelector('input').value = '';
 };
 
-const CommentSection = ({ comments, postId, addNewComment, timestamp }) => (
+const CommentSection = ({
+  comments, postId, addNewComment, timestamp,
+}) => (
   <div>
     {comments.map(({ username, text }) => (
       <Comment key={`${username}-${text}`} username={username} text={text} />
