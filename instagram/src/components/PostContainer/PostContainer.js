@@ -4,7 +4,7 @@ import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 
 const PostContainer = ({
-  comments, username, thumbnailUrl, imageUrl, likes, timestamp, addNewComment, postId,
+  comments, username, thumbnailUrl, imageUrl, likes, timestamp, addNewComment, likedPosts, addLike, postId,
 }) => (
   <div className="post-container">
     <div className="user-container">
@@ -15,7 +15,9 @@ const PostContainer = ({
     <img className="image" src={imageUrl} alt="insta" />
 
     <div className="comment-icons">
-      <i className="icon far fa-heart" />
+      {likedPosts.has(postId)
+        ? <i className="icon fas fa-heart" onClick={() => addLike(postId)} />
+        : <i className="icon far fa-heart" onClick={() => addLike(postId)}/>}
       <i className="icon far fa-comment" />
     </div>
 
@@ -40,6 +42,10 @@ PostContainer.propTypes = {
   timestamp: PropTypes.string.isRequired,
   addNewComment: PropTypes.func.isRequired,
   postId: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  likedPosts: PropTypes.object.isRequired,
+  addLike: PropTypes.func.isRequired,
+
 };
 
 export default PostContainer;
