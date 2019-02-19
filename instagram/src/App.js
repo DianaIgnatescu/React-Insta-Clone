@@ -10,13 +10,24 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [...dummyData],
+      currentUser: 'Holly Wood',
       // comments: [{ postId: 1, username: 'biancasaurus', text: 'hello'}, { postId: 1, username: 'theotherguy', text: 'hello'},
       // { postId: 2, username: 'biancasaurus', text: 'hello'}],
     };
+    this.addNewComment = this.addNewComment.bind(this);
   }
+
+
 
   componentDidMount() {
     this.setState({ posts: [...dummyData] });
+  }
+
+  addNewComment(postId, comment) {
+    const index = postId - 1;
+    const newPosts = [...this.state.posts];
+    newPosts[index].comments.push({ username: this.state.currentUser, text: comment });
+    this.setState({ posts: [...newPosts] });
   }
 
   render() {
@@ -24,8 +35,10 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar />
-        {posts.map(post => (
+        {posts.map((post, index) => (
           <PostContainer
+            postId={index + 1}
+            addNewComment={this.addNewComment}
             key={post.timestamp}
             comments={post.comments}
             username={post.username}

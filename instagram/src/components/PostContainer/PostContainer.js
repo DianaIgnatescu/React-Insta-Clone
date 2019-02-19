@@ -6,7 +6,7 @@ import Comment from '../../assets/comment.png';
 import './PostContainer.css';
 
 const PostContainer = ({
-  comments, username, thumbnailUrl, imageUrl, likes, timestamp,
+  comments, username, thumbnailUrl, imageUrl, likes, timestamp, addNewComment, postId,
 }) => (
   <div className="post-container">
     <div className="user-container">
@@ -23,7 +23,7 @@ const PostContainer = ({
 
     <p>{`${likes} likes`}</p>
 
-    {comments.length ? <CommentSection comments={comments} /> : null}
+    {comments.length ? <CommentSection comments={comments} addNewComment={addNewComment} postId={postId} /> : null}
 
     <p className="timestamp">{timestamp}</p>
   </div>
@@ -40,6 +40,8 @@ PostContainer.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   likes: PropTypes.number.isRequired,
   timestamp: PropTypes.string.isRequired,
+  addNewComment: PropTypes.func.isRequired,
+  postId: PropTypes.number.isRequired,
 };
 
 export default PostContainer;
