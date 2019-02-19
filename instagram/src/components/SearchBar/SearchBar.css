@@ -9,9 +9,16 @@
   height: 40px;
   align-items: center;
   background: FFFFFF;
-
-  /* padding: 20px 0; */
 }
+
+.search-results {
+  text-align: center;
+  font-size: 16px;
+  color: #999999;
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
 .logo {
   display: flex;
   align-items: center;
