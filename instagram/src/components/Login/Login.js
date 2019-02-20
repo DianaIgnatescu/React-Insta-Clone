@@ -1,9 +1,9 @@
 import React from 'react';
-import LogoIg from '../../assets/insta-logo.svg'
+import LogoIg from '../../assets/insta-logo.svg';
 import './Login.css';
 
 const login = (username, password) => {
-  if (username === 'holly' && password === '1234') {
+  if (username === 'hollywood91@gmail.com' && password === '1234') {
     localStorage.setItem('username', username);
     return true;
   }

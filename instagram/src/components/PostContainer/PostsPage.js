@@ -10,7 +10,7 @@ class PostsPage extends React.Component {
     const {
       currentFilter, resultNotFound, posts, likedPosts, filterByUsername, addLike, addNewComment,
     } = this.props;
-    
+
     return (
       <div className="App">
         <SearchBar
@@ -42,10 +42,8 @@ class PostsPage extends React.Component {
 PostsPage.propTypes = {
   currentFilter: PropTypes.string.isRequired,
   resultNotFound: PropTypes.bool.isRequired,
-  // // eslint-disable-next-line react/forbid-prop-types
-  // posts: PropTypes.array.isRequired,
-  // // eslint-disable-next-line react/forbid-prop-types
-  // likedPosts: PropTypes.array.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  likedPosts: PropTypes.arrayOf(PropTypes.number).isRequired,
   filterByUsername: PropTypes.func.isRequired,
   addLike: PropTypes.func.isRequired,
   addNewComment: PropTypes.func.isRequired,
