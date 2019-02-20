@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import dummyData from './dummy-data';
 import authenticate from './components/authentication/authenticate';
 import PostsPage from './components/PostContainer/PostsPage';
+import Login from './components/Login/Login';
 import './App.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -82,4 +83,4 @@ class App extends Component {
   }
 }
 
-export default authenticate(App);
+export default authenticate(App)(Login);
