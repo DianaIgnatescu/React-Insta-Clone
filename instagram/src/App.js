@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [...dummyData],
-      currentUser: 'Holly Wood',
+      currentUser: 'hollywood91',
       likedPosts: [],
       currentFilter: '',
       resultNotFound: false,
