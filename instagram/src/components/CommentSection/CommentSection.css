@@ -1,0 +1,41 @@
+h4 {
+  text-align: left;
+  padding: 0 20px;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #262626;
+}
+span {
+  font-weight: normal;
+  padding: 0 10px;
+  text-align: left;
+  color: #000000; 
+}
+
+.add-comment {
+  border-top: 1px solid #e9e9e9;
+  margin: 20px 20px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-comment p {
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+input {
+  width: 560px;
+  border-bottom: 1px solid lightgrey;
+  border: none;
+  padding: 20px 0;
+  align-self: left;
+}
+
+::placeholder {
+  font-size: 14px;
+  color: #999999;
+  font-weight: 500;
+}
