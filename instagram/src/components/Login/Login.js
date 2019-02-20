@@ -1,4 +1,6 @@
 import React from 'react';
+import LogoIg from '../../assets/insta-logo.svg'
+import './Login.css';
 
 const login = (username, password) => {
   if (username === 'holly' && password === '1234') {
@@ -18,8 +20,9 @@ const handleSubmit = (event) => {
 };
 
 const Login = () => (
-  <div className="login">
-    <form onSubmit={handleSubmit}>
+  <div className="login-container">
+    <form className="login-form" onSubmit={handleSubmit}>
+      <img src={LogoIg} alt="instagram-logo" />
       <input name="username" placeholder="username" />
       <input name="password" type="password" placeholder="password" />
       <button type="submit">LOGIN</button>

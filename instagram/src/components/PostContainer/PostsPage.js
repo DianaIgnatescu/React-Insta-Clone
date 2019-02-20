@@ -42,7 +42,7 @@ PostsPage.propTypes = {
   currentFilter: PropTypes.string.isRequired,
   resultNotFound: PropTypes.bool.isRequired,
   // // eslint-disable-next-line react/forbid-prop-types
-  // posts: PropTypes.object.isRequired,
+  // posts: PropTypes.array.isRequired,
   // // eslint-disable-next-line react/forbid-prop-types
   // likedPosts: PropTypes.array.isRequired,
   filterByUsername: PropTypes.func.isRequired,

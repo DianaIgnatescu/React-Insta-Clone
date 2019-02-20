@@ -5,7 +5,6 @@ import PostsPage from './components/PostContainer/PostsPage';
 import Login from './components/Login/Login';
 import './App.css';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
   constructor(props) {
     super(props);
