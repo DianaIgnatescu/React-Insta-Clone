@@ -32,6 +32,11 @@ input {
   border: none;
   padding: 20px 0;
   align-self: left;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
 }
 
 ::placeholder {
