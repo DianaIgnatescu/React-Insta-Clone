@@ -12,6 +12,9 @@ const handleSubmit = (event) => {
   const username = event.target.querySelector('input[name="username"]').value;
   const password = event.target.querySelector('input[name="password"]').value;
   const successfulLogin = login(username, password);
+  if (!successfulLogin) {
+    event.preventDefault();
+  }
 };
 
 const Login = () => (
