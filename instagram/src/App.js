@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import dummyData from './dummy-data';
-import SearchBar from './components/SearchBar/SearchBar';
-import PostContainer from './components/PostContainer/PostContainer';
+import PostsPage from './components/PostContainer/PostsPage';
 import './App.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -69,29 +68,15 @@ class App extends Component {
       posts, likedPosts, currentFilter, resultNotFound,
     } = this.state;
     return (
-      <div className="App">
-        <SearchBar
-          currentFilter={currentFilter}
-          resultNotFound={resultNotFound}
-          filterByUsername={this.filterByUsername}
-          usernames={posts.map(post => post.username)}
-        />
-        {posts.map((post, index) => (
-          <PostContainer
-            likedPosts={likedPosts}
-            addLike={this.addLike}
-            postId={index + 1}
-            addNewComment={this.addNewComment}
-            key={post.timestamp}
-            comments={post.comments}
-            username={post.username}
-            likes={post.likes}
-            imageUrl={post.imageUrl}
-            timestamp={post.timestamp}
-            thumbnailUrl={post.thumbnailUrl}
-          />
-        ))}
-      </div>
+      <PostsPage
+        posts={posts}
+        likedPosts={likedPosts}
+        currentFilter={currentFilter}
+        resultNotFound={resultNotFound}
+        addLike={this.addLike}
+        addNewComment={this.addNewComment}
+        filterByUsername={this.filterByUsername}
+      />
     );
   }
 }
