@@ -12,35 +12,35 @@
   color: #000000; 
 } */
 
-.add-comment {
+/* .add-comment {
   border-top: 1px solid #e9e9e9;
   margin: 20px 20px 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-.add-comment p {
+/* .add-comment p {
   padding: 20px 0;
   font-size: 16px;
   font-weight: 800;
-}
+} */
 
-input {
+/* input {
   width: 560px;
   border-bottom: 1px solid lightgrey;
   border: none;
   padding: 20px 0;
   align-self: left;
   font-size: 14px;
-}
+} */
 
-input:focus {
+/* input:focus {
   outline: none;
-}
+} */
 
-::placeholder {
+/* ::placeholder {
   font-size: 14px;
   color: #999999;
   font-weight: 500;
-}
+} */
