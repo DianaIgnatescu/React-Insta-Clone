@@ -6,6 +6,7 @@ import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 
 const PostContainer = ({
+  /* eslint-disable max-len */
   comments, username, thumbnailUrl, imageUrl, likes, timestamp, addNewComment, likedPosts, addLike, postId,
 }) => (
   <div className="post-container">
@@ -44,8 +45,7 @@ PostContainer.propTypes = {
   timestamp: PropTypes.string.isRequired,
   addNewComment: PropTypes.func.isRequired,
   postId: PropTypes.number.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  likedPosts: PropTypes.array.isRequired,
+  likedPosts: PropTypes.arrayOf(PropTypes.number).isRequired,
   addLike: PropTypes.func.isRequired,
 };
 

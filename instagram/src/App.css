@@ -2,5 +2,6 @@
   text-align: center;
   margin: 0 auto;
   background: #fafafa;
-  padding-bottom: 50px;
+  height: 100%;
+  /* padding-bottom: 50px; */
 }
