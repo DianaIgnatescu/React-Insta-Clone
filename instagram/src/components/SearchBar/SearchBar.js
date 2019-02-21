@@ -7,7 +7,6 @@ import LogoIg from '../../assets/insta-logo.svg';
 import Compass from '../../assets/compass.png';
 import Heart from '../../assets/heart.png';
 import User from '../../assets/user.png';
-import './SearchBar.css';
 
 const SearchBarWrapper = styled.header`
   border-bottom: 1px solid #e9e9e9;
@@ -54,6 +53,9 @@ const SearchInput = styled.input`
   border: 1px solid #e9e9e9;
   background: #FAFAFA;
   border-radius: 3px;
+  &:focus {
+    outline: none;
+  }
 
   &::placeholder {
     text-align: center;

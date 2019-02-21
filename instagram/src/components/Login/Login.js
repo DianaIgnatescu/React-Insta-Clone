@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import LogoIg from '../../assets/insta-logo.svg';
-import './Login.css';
 
 const LoginWrapper = styled.div`
   background: #FAFAFA;
@@ -37,12 +36,10 @@ const LoginInput = styled.input`
   border-radius: 3px;
   border: 1px solid #e9e9e9;
   font-size: 14px;
-
-  :focus {
+  &:focus {
     outline: none;
   }
-
-  ::placeholder {
+  &::placeholder {
     font-size: 14px;
     color: #999999;
     font-weight: 400;
@@ -56,7 +53,6 @@ const LoginButton = styled.button`
   font-weight: bold;
   color: #FAFAFA;
   font-size: 14px;
-
   &:hover {
     background: rgb(46, 125, 199);
     cursor: pointer;
