@@ -1,54 +1,54 @@
-.post-container {
+/* .post-container {
   border: 1px solid #e9e9e9;
   border-radius: 3px;
   margin: 60px auto;
   max-width: 640px;
   background: #FFFFFF;
-}
+} */
 
-.user-container {
+/* .user-container {
   display: flex;
   align-items: center;
-}
+} */
 
-.thumbnail {
+/* .thumbnail {
   border-radius: 50%;
   max-width: 30px;
   height: 30px;
   padding: 20px;
-}
+} */
 
-.comment-icons {
+/* .comment-icons {
   display: flex;
   padding: 0 5px;
   margin-top: 10px;
-}
+} */
 
-p {
+/* p {
   text-align: left;
   font-weight: bold;
   color: #262626;
   padding: 0 20px;
   margin: 0;
 
-}
+} */
 
-.timestamp {
+/* .timestamp {
   color: #999999;
   font-weight: normal;
   font-size: 14px;
   padding: 10px 20px;
-}
+} */
 
 i.far {
   font-size: 30px;
-  padding: 0 5px;
+  padding: 0 10px;
   
 }
 
 i.fas {
   font-size: 30px;
-  padding: 0 5px;
+  padding: 0 10px;
   color: #E94855;
 }
 

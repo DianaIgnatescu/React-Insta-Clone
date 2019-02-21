@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from './PostContainer';
-import './PostsPage.css';
+// import './PostsPage.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class PostsPage extends React.Component {
