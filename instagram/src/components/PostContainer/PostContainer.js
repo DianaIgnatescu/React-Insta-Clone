@@ -79,8 +79,8 @@ const PostContainer = ({
 
     <CommentIcons>
       {likedPosts.includes(postId)
-        ? <Icon src={Heart} onClick={() => addLike(postId)} />
-        : <Icon src={HeartRed} onClick={() => addLike(postId)} />}
+        ? <Icon src={HeartRed} onClick={() => addLike(postId)} />
+        : <Icon src={Heart} onClick={() => addLike(postId)} />}
       <Icon src={Comment} />
     </CommentIcons>
 

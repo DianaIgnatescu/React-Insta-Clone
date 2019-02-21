@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CameraIg from '../../assets/camera-ig.png';
 import LogoIg from '../../assets/insta-logo.svg';
 import Compass from '../../assets/compass.png';
-import Heart from '../../assets/heart.png';
+import Heart from '../../assets/heart_new.png';
 import User from '../../assets/user.png';
 
 const SearchBarWrapper = styled.header`
@@ -77,9 +77,9 @@ const SocialIcons = styled.div`
   display: flex;
 `;
 
-const Icon = styled.img`
-  width: 45px;
-  height: 45px;
+const IconSearchBar = styled.img`
+  width: 40px;
+  height: 40px;
 `;
 
 const fuzzySearch = (searchTerm, list) => {
@@ -132,9 +132,9 @@ const SearchBar = ({
         <SearchInput placeholder="Search..." />
       </form>
       <SocialIcons>
-        <Icon src={Compass} alt="compass" />
-        <Icon src={Heart} alt="heart" />
-        <Icon src={User} alt="user" />
+        <IconSearchBar src={Compass} alt="compass" />
+        <IconSearchBar src={Heart} alt="heart" />
+        <IconSearchBar src={User} alt="user" />
       </SocialIcons>
     </Header>
     {currentFilter && !resultNotFound ? <SearchResults>{`Filtered results for ${currentFilter}`}</SearchResults> : null}
