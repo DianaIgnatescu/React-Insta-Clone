@@ -4,6 +4,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import CommentSection from '../CommentSection/CommentSection';
+import Heart from '../../assets/heart_new.png';
+import HeartRed from '../../assets/red_heart.png';
+import Comment from '../../assets/comment.png';
 import './PostContainer.css';
 
 const PostContainerWrapper = styled.div`
@@ -41,6 +44,11 @@ const CommentIcons = styled.div`
   margin-top: 10px;
 `;
 
+const Icon = styled.img`
+  width: 45px;
+  height: 45px;
+`;
+
 const CommentLikes = styled.p`
   text-align: left;
   font-weight: bold;
@@ -62,11 +70,18 @@ const PostContainer = ({
 
     <img className="image" src={imageUrl} alt="insta" />
 
-    <CommentIcons>
+    {/* <CommentIcons>
       {likedPosts.includes(postId)
         ? <i className="icon fas fa-heart" onClick={() => addLike(postId)} />
         : <i className="icon far fa-heart" onClick={() => addLike(postId)} />}
       <i className="icon far fa-comment" />
+    </CommentIcons> */}
+
+    <CommentIcons>
+      {likedPosts.includes(postId)
+        ? <Icon src={Heart} onClick={() => addLike(postId)} />
+        : <Icon src={HeartRed} onClick={() => addLike(postId)} />}
+      <Icon src={Comment} />
     </CommentIcons>
 
     <CommentLikes>{`${likes} likes`}</CommentLikes>
