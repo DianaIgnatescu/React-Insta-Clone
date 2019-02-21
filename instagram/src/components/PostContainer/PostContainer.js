@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 
@@ -26,9 +26,13 @@ const UserThumbnail = styled.img`
   padding: 20px;
 `;
 
-const UsernameH3 = styled.h3`
- font-size: 16px;
- font-weight: bold;
+export const UsernameH3 = styled.h3`
+  font-size: 14px;
+  font-weight: bold;
+
+  ${props => props.larger && css`
+    font-size: 16px;
+  `};
 `;
 
 const CommentIcons = styled.div`
@@ -46,7 +50,6 @@ const CommentLikes = styled.p`
   font-size: 14px;
 `;
 
-
 const PostContainer = ({
   /* eslint-disable max-len */
   comments, username, thumbnailUrl, imageUrl, likes, timestamp, addNewComment, likedPosts, addLike, postId,
@@ -54,7 +57,7 @@ const PostContainer = ({
   <PostContainerWrapper>
     <UserContainer>
       <UserThumbnail src={thumbnailUrl} alt="user-thumbnail" />
-      <UsernameH3>{username}</UsernameH3>
+      <UsernameH3 larger>{username}</UsernameH3>
     </UserContainer>
 
     <img className="image" src={imageUrl} alt="insta" />

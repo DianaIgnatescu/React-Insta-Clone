@@ -2,16 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Username } from '../Styles/Username';
 
 const CommentWrapper = styled.div``;
-
-const CommentH4 = styled.h4`
-  text-align: left;
-  padding: 0 20px;
-  margin: 10px 0;
-  font-size: 14px;
-  color: #262626;
-`;
 
 const Divider = styled.span`
   font-weight: normal;
@@ -23,7 +16,7 @@ const Divider = styled.span`
 
 const Comment = ({ username, text }) => (
   <CommentWrapper>
-    <CommentH4>{username}<Divider>{text}</Divider></CommentH4>
+    <Username>{username}<Divider>{text}</Divider></Username>
   </CommentWrapper>
 );
 
