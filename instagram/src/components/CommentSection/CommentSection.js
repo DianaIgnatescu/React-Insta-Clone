@@ -4,12 +4,13 @@ import Comment from './Comment';
 import './CommentSection.css';
 
 const handleSubmit = (event, postId, addNewComment) => {
-  const value = event.target.querySelector('input').value;
+  const { value } = event.target.querySelector('input');
   event.preventDefault();
   if (!value) {
     return;
   }
   addNewComment(postId, value);
+  // eslint-disable-next-line no-param-reassign
   event.target.querySelector('input').value = '';
 };
 
