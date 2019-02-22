@@ -1,11 +1,23 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Username } from '../Styles/Username';
+
+const CommentWrapper = styled.div``;
+
+const Divider = styled.span`
+  font-weight: normal;
+  padding: 0 10px;
+  text-align: left;
+  color: #000000; 
+`;
+
 
 const Comment = ({ username, text }) => (
-  <div>
-    <h4>{username}<span>{text}</span></h4>
-  </div>
+  <CommentWrapper>
+    <Username>{username}<Divider>{text}</Divider></Username>
+  </CommentWrapper>
 );
 
 Comment.propTypes = {

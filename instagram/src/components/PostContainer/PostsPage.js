@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from './PostContainer';
-import './PostsPage.css';
+
+const Wrapper = styled.div`
+  text-align: center;
+  margin: 0 auto;
+  background: #fafafa;
+  height: 100%;
+`;
 
 // eslint-disable-next-line react/prefer-stateless-function
 class PostsPage extends React.Component {
@@ -12,7 +19,7 @@ class PostsPage extends React.Component {
     } = this.props;
 
     return (
-      <div className="App">
+      <Wrapper>
         <SearchBar
           currentFilter={currentFilter}
           resultNotFound={resultNotFound}
@@ -34,7 +41,7 @@ class PostsPage extends React.Component {
             thumbnailUrl={post.thumbnailUrl}
           />
         ))}
-      </div>
+      </Wrapper>
     );
   }
 }

@@ -1,12 +1,86 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Fuse from 'fuse.js';
+import styled from 'styled-components';
 import CameraIg from '../../assets/camera-ig.png';
 import LogoIg from '../../assets/insta-logo.svg';
 import Compass from '../../assets/compass.png';
-import Heart from '../../assets/heart.png';
+import Heart from '../../assets/heart_new.png';
 import User from '../../assets/user.png';
-import './SearchBar.css';
+
+const SearchBarWrapper = styled.header`
+  border-bottom: 1px solid #e9e9e9;
+  max-width: 100%;
+  background: #FFFFFF;
+  padding: 20px;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 880px;
+  height: 40px;
+  align-items: center;
+  background: #FFFFFF;
+`;
+
+const LogoHeader = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const LogoCamera = styled.img`
+  width: 25px;
+  height: 25px;
+  padding: 10px 20px 10px 0;
+  border-right: 1px solid #262626;
+  margin: 0 10px 10px 0;
+`;
+
+const LogoImage = styled.img`
+  width: 100px;
+  height: 30px;
+  padding: 10px 10px;
+  align-self: bottom;
+  margin: 10px 10px 10px 0;
+`;
+
+const SearchInput = styled.input`
+  height: 30px;
+  padding: 0 10px;
+  width: 200px;
+  border: 1px solid #e9e9e9;
+  background: #FAFAFA;
+  border-radius: 3px;
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    text-align: center;
+    font-size: 16px;
+    color: #999999;
+    font-weight: normal;
+  }
+`;
+
+const SearchResults = styled.div`
+  text-align: center;
+  font-size: 16px;
+  color: #999999;
+  font-weight: normal;
+  padding: 10px;
+`;
+
+const SocialIcons = styled.div`
+  display: flex;
+`;
+
+const IconSearchBar = styled.img`
+  width: 40px;
+  height: 40px;
+`;
 
 const fuzzySearch = (searchTerm, list) => {
   const options = {
@@ -48,24 +122,24 @@ const handleSubmit = (event, filterByUsername, usernames) => {
 const SearchBar = ({
   filterByUsername, usernames, currentFilter, resultNotFound,
 }) => (
-  <div className="search-container">
-    <div className="search-bar">
-      <div className="logo">
-        <img className="camera" src={CameraIg} alt="camera-ig" />
-        <img className="insta-logo" src={LogoIg} alt="logo-ig" />
-      </div>
+  <SearchBarWrapper>
+    <Header>
+      <LogoHeader>
+        <LogoCamera src={CameraIg} alt="camera-ig" />
+        <LogoImage src={LogoIg} alt="logo-ig" />
+      </LogoHeader>
       <form onSubmit={event => handleSubmit(event, filterByUsername, usernames)}>
-        <input className="search" placeholder="Search..." />
+        <SearchInput placeholder="Search..." />
       </form>
-      <div className="social-icons">
-        <img className="icon compass" src={Compass} alt="compass" />
-        <img className="icon heart" src={Heart} alt="heart" />
-        <img className="icon user" src={User} alt="user" />
-      </div>
-    </div>
-    {currentFilter && !resultNotFound ? <div className="search-results">{`Filtered results for ${currentFilter}`}</div> : null}
-    {resultNotFound ? <div className="search-results">{`No results matched ${currentFilter}`}</div> : null}
-  </div>
+      <SocialIcons>
+        <IconSearchBar src={Compass} alt="compass" />
+        <IconSearchBar src={Heart} alt="heart" />
+        <IconSearchBar src={User} alt="user" />
+      </SocialIcons>
+    </Header>
+    {currentFilter && !resultNotFound ? <SearchResults>{`Filtered results for ${currentFilter}`}</SearchResults> : null}
+    {resultNotFound ? <SearchResults>{`No results matched ${currentFilter}`}</SearchResults> : null}
+  </SearchBarWrapper>
 );
 
 SearchBar.propTypes = {

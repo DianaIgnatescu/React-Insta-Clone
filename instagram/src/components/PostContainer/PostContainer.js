@@ -2,33 +2,92 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 import CommentSection from '../CommentSection/CommentSection';
+import Heart from '../../assets/heart_new.png';
+import HeartRed from '../../assets/red_heart.png';
+import Comment from '../../assets/comment.png';
 import './PostContainer.css';
 
+const PostContainerWrapper = styled.div`
+  border: 1px solid #e9e9e9;
+  border-radius: 3px;
+  margin: 60px auto;
+  max-width: 640px;
+  background: #FFFFFF;
+`;
+
+const UserContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const UserThumbnail = styled.img`
+  border-radius: 50%;
+  max-width: 30px;
+  height: 30px;
+  padding: 20px;
+`;
+
+export const UsernameH3 = styled.h3`
+  font-size: 14px;
+  font-weight: bold;
+
+  ${props => props.larger && css`
+    font-size: 16px;
+  `};
+`;
+
+const CommentIcons = styled.div`
+  display: flex;
+  padding: 5px 10px;
+  margin-top: 10px;
+`;
+
+const Icon = styled.img`
+  width: 45px;
+  height: 45px;
+`;
+
+const CommentLikes = styled.p`
+  text-align: left;
+  font-weight: bold;
+  color: #262626;
+  padding: 0 20px;
+  margin: 0;
+  font-size: 14px;
+`;
+
 const PostContainer = ({
+  /* eslint-disable max-len */
   comments, username, thumbnailUrl, imageUrl, likes, timestamp, addNewComment, likedPosts, addLike, postId,
 }) => (
-  <div className="post-container">
-    <div className="user-container">
-      <img className="thumbnail" src={thumbnailUrl} alt="user-thumbnail" />
-      <h3>{username}</h3>
-    </div>
+  <PostContainerWrapper>
+    <UserContainer>
+      <UserThumbnail src={thumbnailUrl} alt="user-thumbnail" />
+      <UsernameH3 larger>{username}</UsernameH3>
+    </UserContainer>
 
     <img className="image" src={imageUrl} alt="insta" />
 
-    <div className="comment-icons">
+    {/* <CommentIcons>
       {likedPosts.includes(postId)
         ? <i className="icon fas fa-heart" onClick={() => addLike(postId)} />
         : <i className="icon far fa-heart" onClick={() => addLike(postId)} />}
       <i className="icon far fa-comment" />
-    </div>
+    </CommentIcons> */}
 
-    <p>{`${likes} likes`}</p>
+    <CommentIcons>
+      {likedPosts.includes(postId)
+        ? <Icon src={HeartRed} onClick={() => addLike(postId)} />
+        : <Icon src={Heart} onClick={() => addLike(postId)} />}
+      <Icon src={Comment} />
+    </CommentIcons>
+
+    <CommentLikes>{`${likes} likes`}</CommentLikes>
 
     {comments.length ? <CommentSection comments={comments} addNewComment={addNewComment} postId={postId} timestamp={timestamp} /> : null}
-
-    {/* <p className="timestamp">{timestamp}</p> */}
-  </div>
+  </PostContainerWrapper>
 
 );
 
@@ -44,8 +103,7 @@ PostContainer.propTypes = {
   timestamp: PropTypes.string.isRequired,
   addNewComment: PropTypes.func.isRequired,
   postId: PropTypes.number.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  likedPosts: PropTypes.array.isRequired,
+  likedPosts: PropTypes.arrayOf(PropTypes.number).isRequired,
   addLike: PropTypes.func.isRequired,
 };
 
